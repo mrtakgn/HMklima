@@ -1,0 +1,195 @@
+.neden-biz {
+  background: var(--gradient-1);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 !important;
+}
+
+.neden-biz::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(144, 224, 239, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.neden-biz .section-title {
+  color: var(--white);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem !important;
+  margin-bottom: 15px !important;
+}
+
+.neden-biz .section-title::after {
+  background-color: var(--accent-color);
+  width: 60px !important;
+  height: 3px !important;
+  bottom: -10px !important;
+}
+
+.neden-biz .section-subtitle {
+  font-size: 0.9rem !important;
+  margin-bottom: 30px !important;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ozellikler-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.ozellik-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ozellik-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.ozellik-card:hover::before {
+  opacity: 1;
+}
+
+.ozellik-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ozellik-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  display: inline-block;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ozellik-card:hover .ozellik-icon {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.ozellik-card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--white);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  line-height: 1.3;
+}
+
+.ozellik-card p {
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .ozellikler-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .neden-biz {
+    padding: 40px 0 !important;
+  }
+
+  .neden-biz .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .neden-biz .section-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 20px !important;
+  }
+
+  .ozellikler-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .ozellik-card {
+    padding: 12px 8px;
+  }
+
+  .ozellik-icon {
+    font-size: 1.5rem;
+    padding: 6px;
+    margin-bottom: 6px;
+  }
+
+  .ozellik-card h3 {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+  }
+
+  .ozellik-card p {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ozellikler-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ozellik-card {
+    padding: 15px 10px;
+  }
+
+  .ozellik-icon {
+    font-size: 2rem;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .ozellik-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .ozellik-card p {
+    font-size: 0.75rem;
+  }
+}
+
