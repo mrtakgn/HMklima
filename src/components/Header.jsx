@@ -117,7 +117,7 @@ const Header = () => {
               closeMenu()
             }
           }}>
-            <img src="/ChatGPT Image 11 Ara 2025 01_31_15.png" alt="HM KLİMA Logo" className="logo-image" />
+            <img src="/logo.png" alt="HM KLİMA Logo" className="logo-image" />
           </Link>
           
           <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>

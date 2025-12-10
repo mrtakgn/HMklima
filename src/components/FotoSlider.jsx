@@ -77,3 +77,4 @@ const FotoSlider = () => {
 
 export default FotoSlider
 
+
