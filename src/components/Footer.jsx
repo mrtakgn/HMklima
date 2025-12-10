@@ -55,11 +55,14 @@ const Footer = () => {
             <ul className="contact-info">
               <li>
                 <span className="icon">📞</span>
-                <span>0555 123 45 67</span>
+                <div>
+                  <div>Mine Usta: <a href="tel:05413203885">0541 320 38 85</a></div>
+                  <div>Hasan Usta: <a href="tel:05413203885">0541 320 38 85</a></div>
+                </div>
               </li>
               <li>
                 <span className="icon">✉️</span>
-                <span>info@klimaadami.com</span>
+                <span>info@hmklima.com</span>
               </li>
               <li>
                 <span className="icon">📍</span>

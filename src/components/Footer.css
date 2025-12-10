@@ -55,12 +55,30 @@
 
 .contact-info li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+}
+
+.contact-info li div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-info li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info li a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
 }
 
 .contact-info .icon {
   font-size: 1.2rem;
+  margin-top: 2px;
 }
 
 .footer-bottom {

@@ -23,9 +23,6 @@ const Hero = () => {
         <div className="hero-overlay"></div>
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">
-              HM KLİMA
-            </h1>
             <h2 className="hero-subtitle-main">
               Yaz Serin, Kış Sıcak
             </h2>
@@ -36,17 +33,17 @@ const Hero = () => {
               Hızlı çözüm garantisi ile yanınızdayız.
             </p>
             <div className="hero-buttons">
-              <a href="#iletisim" className="btn btn-primary" onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('#iletisim')
-              }}>
+              <a href="tel:05413203885" className="btn btn-primary btn-large">
                 📞 Hemen Arayın
               </a>
-              <a href="#hizmetlerimiz" className="btn btn-secondary" onClick={(e) => {
-                e.preventDefault()
-                scrollToSection('#hizmetlerimiz')
-              }}>
-                🛠️ Hizmetlerimiz
+              <a 
+                href="https://wa.me/905413203885" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-whatsapp"
+                title="WhatsApp ile iletişime geçin"
+              >
+                <img src="round-whatsapp-logo-isolated-white-background_469489-1039.avif" alt="WhatsApp" width={32} height={32} />
               </a>
             </div>
           </div>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +57,20 @@ const Header = () => {
     e.stopPropagation()
     closeMenu()
     
+    // Eğer galeri sayfasındaysak, önce anasayfaya git
+    if (location.pathname !== '/') {
+      navigate('/')
+      // Anasayfaya gittikten sonra scroll yap
+      setTimeout(() => {
+        if (hash === '#') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+          return
+        }
+        scrollToElement(hash)
+      }, 100)
+      return
+    }
+    
     if (hash === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       window.history.pushState(null, '', '/')
@@ -63,28 +78,30 @@ const Header = () => {
     }
 
     // Scroll işlemini hemen yap
-    const scrollToElement = () => {
-      const element = document.querySelector(hash)
-      if (element) {
-        const headerHeight = 100
-        const yOffset = -headerHeight
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+    scrollToElement(hash)
+  }
 
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth'
-        })
-        window.history.pushState(null, '', hash)
-      }
+  const scrollToElement = (hash) => {
+    const element = document.querySelector(hash)
+    if (element) {
+      const headerHeight = 100
+      const yOffset = -headerHeight
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      })
+      window.history.pushState(null, '', hash)
+    } else {
+      // Element bulunamadıysa kısa bir gecikme ile tekrar dene
+      setTimeout(() => scrollToElement(hash), 50)
     }
-
-    // Hemen dene, eğer olmazsa kısa bir gecikme ile tekrar dene
-    scrollToElement()
-    setTimeout(scrollToElement, 50)
   }
 
   const isActive = (hash) => {
-    if (hash === '#' && !window.location.hash) return 'active'
+    if (hash === '#' && !window.location.hash && location.pathname === '/') return 'active'
+    if (hash === '/galeri' && location.pathname === '/galeri') return 'active'
     return window.location.hash === hash ? 'active' : ''
   }
 
@@ -92,9 +109,16 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="header-content">
-          <a href="#" className="logo" onClick={(e) => handleNavClick(e, '#')}>
-            <span className="logo-text">HM KLİMA</span>
-          </a>
+          <Link to="/" className="logo" onClick={(e) => {
+            if (location.pathname === '/') {
+              e.preventDefault()
+              handleNavClick(e, '#')
+            } else {
+              closeMenu()
+            }
+          }}>
+            <img src="/ChatGPT Image 11 Ara 2025 01_31_15.png" alt="HM KLİMA Logo" className="logo-image" />
+          </Link>
           
           <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
             <a 
@@ -125,6 +149,13 @@ const Header = () => {
             >
               İletişim
             </a>
+            <Link 
+              to="/galeri"
+              className={`nav-link ${isActive('/galeri')}`}
+              onClick={closeMenu}
+            >
+              Galeri
+            </Link>
           </nav>
 
           <button 

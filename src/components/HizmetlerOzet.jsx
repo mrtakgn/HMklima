@@ -48,16 +48,16 @@ const HizmetlerOzet = () => {
     {
       icon: '💨',
       title: 'Gaz Dolum',
-      description: 'Orijinal gaz ile hızlı ve güvenli dolum hizmeti.',
+      description: 'Orijinal gaz ile hızlı ve güvenli dolum hizmeti. Tüm gaz tiplerinde hizmet veriyoruz.',
       details: [
-        'Orijinal R410A gaz',
-        'Orijinal R22 gaz',
+        'Orijinal gaz kullanımı',
         'Basınç kontrolü',
         'Kaçak testi',
         'Performans testi',
         '1 yıl garanti'
       ],
-      price: 'Fiyat Garantisi'
+      price: 'Fiyat Garantisi',
+      gazTipleri: ['410A', '407', '417', '22', '32']
     },
     {
       icon: '🧹',
@@ -108,6 +108,16 @@ const HizmetlerOzet = () => {
                 </div>
               </div>
               <p className="hizmet-detay-description">{hizmet.description}</p>
+              {hizmet.gazTipleri && (
+                <div className="gaz-tipleri-section">
+                  <h4 className="gaz-tipleri-title">Çalıştığımız Gaz Tipleri:</h4>
+                  <div className="gaz-tipleri-badges">
+                    {hizmet.gazTipleri.map((gaz, gazIdx) => (
+                      <span key={gazIdx} className="gaz-badge">R{gaz}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
               <ul className="hizmet-detay-list">
                 {hizmet.details.map((detail, idx) => (
                   <li key={idx}>✓ {detail}</li>

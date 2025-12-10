@@ -73,10 +73,11 @@
 }
 
 .hizmet-detay-description {
-  color: var(--text-light);
+  color: var(--text-dark);
   margin-bottom: 25px;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .hizmet-detay-list {
@@ -85,14 +86,55 @@
 }
 
 .hizmet-detay-list li {
-  padding: 10px 0;
+  padding: 12px 0;
   color: var(--text-dark);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.7;
 }
 
 .hizmet-detay-list li:last-child {
   border-bottom: none;
+}
+
+.gaz-tipleri-section {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(74, 85, 104, 0.05) 0%, rgba(45, 55, 72, 0.05) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(74, 85, 104, 0.1);
+}
+
+.gaz-tipleri-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  display: block;
+}
+
+.gaz-tipleri-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gaz-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--gradient-1);
+  color: var(--white);
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.gaz-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
