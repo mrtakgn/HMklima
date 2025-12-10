@@ -43,7 +43,7 @@ const Hero = () => {
                 className="btn-whatsapp"
                 title="WhatsApp ile iletişime geçin"
               >
-                <img src="round-whatsapp-logo-isolated-white-background_469489-1039.avif" alt="WhatsApp" width={32} height={32} />
+                <img src="/round-whatsapp-logo-isolated-white-background_469489-1039.avif" alt="WhatsApp" width={32} height={32} />
               </a>
             </div>
           </div>
